@@ -42,17 +42,30 @@ class LDStarLayer: CALayer {
         ]
         
         
-        CGContextTranslateCTM(ctx, r1, r1)
-        CGContextBeginPath(ctx)
-        CGContextMoveToPoint(ctx, points[0].x, points[0].y)
-        CGContextAddLines(ctx, points, 10)
-        CGContextClosePath(ctx)
+        drawStar(ctx, r: r1, points: points)
         
-        CGContextSetFillColorWithColor(ctx, control?.starColor.CGColor)
-        CGContextSetStrokeColorWithColor(ctx, control?.starColor.CGColor)
-        CGContextSetLineWidth(ctx, 0.5)
+        drawBackground(ctx, r: r1, points: points)
         
         
+//        CGContextSaveGState(ctx)
+//        UIGraphicsBeginImageContextWithOptions(bounds.size, true, 1.0)
+//        let newContext = UIGraphicsGetCurrentContext()
+//        UIColor.blueColor().set()
+//        CGContextBeginPath(newContext)
+//        CGContextMoveToPoint(newContext, points[0].x, points[0].y)
+//        CGContextAddLines(newContext, points, 10)
+//        CGContextClosePath(newContext)
+//        CGContextFillPath(newContext)
+//        let mask = CGBitmapContextCreateImage(newContext)
+//        CGContextClipToMask(ctx, bounds, mask)
+//        UIGraphicsEndImageContext()
+//        CGContextRestoreGState(ctx)
+//        
+//        CGContextFillRect(ctx, bounds)
+        
+        
+        
+        /*
         let realStarNum = UInt(floor(control!.currentStar))
         if index < realStarNum {
             CGContextDrawPath(ctx, kCGPathFillStroke)
@@ -70,7 +83,53 @@ class LDStarLayer: CALayer {
             CGContextClosePath(ctx)
             
             CGContextDrawPath(ctx, kCGPathFill)
+        }*/
+    }
+    
+    
+    func drawStar(context: CGContextRef, r: CGFloat, points: [CGPoint]) {
+        CGContextSaveGState(context)
+        
+        CGContextTranslateCTM(context, r, r)
+        CGContextBeginPath(context)
+        CGContextMoveToPoint(context, points[0].x, points[0].y)
+        CGContextAddLines(context, points, 10)
+        CGContextClosePath(context)
+        
+        CGContextSetFillColorWithColor(context, control?.starColor.CGColor)
+        CGContextSetStrokeColorWithColor(context, control?.starColor.CGColor)
+        CGContextSetLineWidth(context, 0.5)
+        
+        
+        CGContextDrawPath(context, kCGPathStroke)
+        
+        CGContextRestoreGState(context)
+    }
+    
+    func drawBackground(context: CGContextRef, r: CGFloat, points: [CGPoint]) {
+        CGContextSaveGState(context)
+        
+        CGContextTranslateCTM(context, r, r)
+        CGContextBeginPath(context)
+        CGContextMoveToPoint(context, points[0].x, points[0].y)
+        CGContextAddLines(context, points, 10)
+        CGContextClosePath(context)
+        CGContextClip(context)
+        
+        CGContextSetFillColorWithColor(context, control?.starColor.CGColor)
+        
+        CGContextTranslateCTM(context, -r, -r)
+        
+        let realStarNum = UInt(floor(control!.currentStar))
+        if index < realStarNum {
+            CGContextFillRect(context, bounds)
+        } else if index == realStarNum {
+            let newRect = CGRectMake(0, 0, bounds.size.width * CGFloat(control!.currentStar - floor(control!.currentStar)), bounds.size.height)
+            CGContextFillRect(context, newRect)
         }
+
+        
+        CGContextRestoreGState(context)
     }
     
     func getRadient(c: Double) -> Double {

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B38F2DF0-AAD6-427E-957E-CC3D9D6FEE55</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LDStarScore</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>93F2C055FB5CB8BA0F7D31C5A10953BA9110D1C2</key>
+		<string>https://github.com/liuda101/MySwiftControls.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LDStarScore/LDStarScore.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>93F2C055FB5CB8BA0F7D31C5A10953BA9110D1C2</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/liuda101/MySwiftControls.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>93F2C055FB5CB8BA0F7D31C5A10953BA9110D1C2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>93F2C055FB5CB8BA0F7D31C5A10953BA9110D1C2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MySwiftControls</string>
+		</dict>
+	</array>
+</dict>
+</plist>
