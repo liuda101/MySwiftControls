@@ -3,5 +3,5 @@ MySwiftControls
 
 1. LDStarScoreControl
 
-![image](https://github.com/liuda101/MySwiftControls/raw/master/images/LDStarScoreControl.png)
+![image](https://raw.githubusercontent.com/liuda101/MySwiftControls/master/images/LDStarScoreControl.PNG)
 
